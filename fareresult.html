@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add your existing head content -->
+
+    <script>
+        // Function to extract fare information from the query parameter
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Fetch data using AJAX based on query parameters
+        const Source = getQueryParam('Source');
+        const Destination = getQueryParam('Destination');
+
+        // Make AJAX request to getfare.php
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                const fareDetails = JSON.parse(xhr.responseText);
+                displayFareDetails(fareDetails);
+            }
+        };
+
+        xhr.open('GET', `getfare.php?Source=${Source}&Destination=${Destination}`, true);
+        xhr.send();
+
+        // Function to display fare details in the table
+        function displayFareDetails(fareDetails) {
+            const fareDetailsBody = document.getElementById('fareDetailsBody');
+
+            // Create table rows based on the fare details
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${fareDetails.Fare1}</td><td>${fareDetails.Fare2}</td><td>${fareDetails.Fare3}</td><td>${fareDetails.Fare4}</td>`;
+            fareDetailsBody.appendChild(row);
+        }
+    </script>
+</head>
+<body>
+    <h1>Fare Details</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Fare(1st Ac)</th>
+                <th>Fare(2nd Ac)</th>
+                <th>Fare(3rd Ac)</th>
+                <th>Fare(Sleeper)</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody id="fareDetailsBody"></tbody>
+    </table>
+
+    <!-- Add your existing body content -->
+
+</body>
+</html>
+

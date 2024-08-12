@@ -1,0 +1,118 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="">
+  <title>Contact Us</title>
+  <style>
+    /* style.css */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.contact-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+label {
+  margin-top: 10px;
+  display: block;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="contact-container">
+    <h1>Contact Us</h1>
+    <div id="contact-form">
+        <form action="https://api.web3forms.com/submit" method="post" class="contact-form webform" data-aos="fade-up" data-aos-delay="400" role="form">
+            <input type="hidden" name="access_key" value="01d54a6a-ecb3-4328-bf5c-77b55ddc3a37">
+
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button onclick="submitForm()">Submit</button>
+    </div>
+
+    <div id="contact-info">
+      <h2>Contact Information</h2>
+      <p>Contact Numbers:</p>
+      <ul>
+        <li>9341535194</li>
+        <li>878961085</li>
+        <li>7217537033</li>
+      </ul>
+
+      <p>Email Addresses:</p>
+      <ul>
+        <li>vaishnavi14227@gmail.com</li>
+        <li>k07jaya@gmail.com</li>
+        <li>vineetadwivedi208@gmail.com</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // script.js
+function submitForm() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  // You can implement the logic to send the form data or perform any other actions here
+  console.log('Form submitted:');
+  console.log('Name:', name);
+  console.log('Email:', email);
+  console.log('Message:', message);
+}
+
+  </script>
+</body>
+</html>
